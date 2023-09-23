@@ -1,0 +1,60 @@
+.App {
+  text-align: center;
+}
+
+
+
+::placeholder {
+  color: rgb(140, 140, 140);
+}
+
+.buildBtn {
+  border: none;
+  border-radius: 4px ;
+  width: 70px;
+  margin-right: 4px ;
+  padding: 10px;
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  background-image: linear-gradient(rgb(252, 150, 55), rgb(255, 255, 0));
+  color: rgb(7, 7, 7);
+}
+
+@media only screen and (min-width: 300px) {
+  .inputBuild {
+    border: none;
+    border-radius: 4px ;
+    width: 150px;
+    margin-right: 4px ;
+    padding: 10px;
+    font-size: medium;
+    background-color: rgb(44, 44, 44);
+    color: black;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .inputBuild {
+    border: none;
+    border-radius: 4px ;
+    width: 350px;
+    margin-right: 4px ;
+    padding: 10px;
+    font-size: medium;
+    background-color: rgb(44, 44, 44);
+    color: black;
+  }
+}
+
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
