@@ -2,8 +2,6 @@
   text-align: center;
 }
 
-
-
 ::placeholder {
   color: rgb(140, 140, 140);
 }
@@ -21,6 +19,42 @@
   color: rgb(7, 7, 7);
 }
 
+.buildBtn:hover{
+  animation: App-logo-spin 3s infinite;
+}
+
+.buildBtn:active {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+.deleteBtn {
+  border: none;
+  float: left;
+  padding: 5px;
+  font-size: medium;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  background: transparent;
+  color: rgb(255, 0, 0);
+}
+
+.ideaBlob {
+  width: auto;
+  margin: 2%;
+}
+
+.ideaSpeck {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: fit-content;
+  padding: 1%;
+  background-color:rgb(255, 255, 255);
+  margin: 1%;
+}
+
+
 @media only screen and (min-width: 300px) {
   .inputBuild {
     border: none;
@@ -29,8 +63,10 @@
     margin-right: 4px ;
     padding: 10px;
     font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+
     background-color: rgb(44, 44, 44);
-    color: black;
+    color: rgb(251, 255, 6);
   }
 }
 
@@ -43,7 +79,7 @@
     padding: 10px;
     font-size: medium;
     background-color: rgb(44, 44, 44);
-    color: black;
+    color: rgb(251, 255, 6);
   }
 }
 
@@ -51,10 +87,13 @@
 
 
 @keyframes App-logo-spin {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  50% {
+    transform: rotate(-20deg);
+  }
+  100% {
     transform: rotate(360deg);
   }
 }

@@ -1,5 +1,8 @@
 import './App.css';
+import * as React from 'react';
 import { useState } from 'react';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
 function App() {
   const [idea, setIdea] = useState("");
@@ -12,7 +15,6 @@ function App() {
       setIdeaArr(newIdeaArr);
       setIdea("");
     } else {
-      
     }
    
   }
@@ -30,6 +32,7 @@ function App() {
           placeholder='Jot down an idea'
           value={idea}
           onChange={(e) => setIdea(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleBuild(idea)}
           required
           />
         <button 
@@ -45,10 +48,11 @@ function App() {
 
 
 function DisplayIdeas({ideaArr, setIdeaArr}) {
-
-  function handleDelete(index) {
-    const temp = ideaArr.slice();
-    const delIdea = delete temp[index];
+  function handleDelete(text) {
+    const temp = ideaArr.filter((idea) => {
+      return idea !== text
+    });
+    // const delIdea =  filter.temp;
     setIdeaArr(temp);
   }
 
@@ -56,9 +60,9 @@ function DisplayIdeas({ideaArr, setIdeaArr}) {
     return (
     <div className='ideaBlob'>
     {ideaArr.map((idea, index) => (
-    <div key={index}>
-    <h1 >{idea}</h1>
-    <button className='delete' onClick={() => handleDelete(index)}>delete</button>
+    <div key={index} className='ideaSpeck'>
+    <button className='deleteBtn'  onClick={() => handleDelete(idea)}>x</button>
+    <p>{idea}</p>
     </div>
     ))}
   </div>
@@ -74,5 +78,7 @@ function DisplayIdeas({ideaArr, setIdeaArr}) {
   }
  
 }
+
+  
 
 export default App;
