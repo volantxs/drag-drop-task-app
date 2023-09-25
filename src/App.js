@@ -1,12 +1,14 @@
 import './App.css';
 import * as React from 'react';
 import { useState } from 'react';
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
+import { DndContext } from '@dnd-kit/core';
+import {Droppable} from './Droppable';
+import {Draggable} from './Draggable';
 
 function App() {
   const [idea, setIdea] = useState("");
   const [ideaArr, setIdeaArr] = useState([])
+  const [isDropped, setIsDropped] = useState(false);
 
   function handleBuild(idea) {
     if (idea !== "") {
@@ -16,10 +18,15 @@ function App() {
       setIdea("");
     } else {
     }
-   
   }
 
+  function handleDragEnd(event) {
+    if (event.over && event.over.id === 'droppable') {
+      setIsDropped(true);
+    }
+  }
   return (
+    <DndContext onDragEnd={handleDragEnd}>
     <div className="App">
       <header >
         <h1>Brain storme</h1>
@@ -41,44 +48,14 @@ function App() {
           Build
         </button>
       </div>
-      <DisplayIdeas ideaArr = {ideaArr} setIdeaArr={setIdeaArr} />
+      <div>
+        <Draggable ideaArr={ideaArr} setIdeaArr={setIdeaArr} />
+      </div>
+
     </div>
+    </DndContext>
+
   );
 }
-
-
-function DisplayIdeas({ideaArr, setIdeaArr}) {
-  function handleDelete(text) {
-    const temp = ideaArr.filter((idea) => {
-      return idea !== text
-    });
-    // const delIdea =  filter.temp;
-    setIdeaArr(temp);
-  }
-
-  if (ideaArr.length > 0) {
-    return (
-    <div className='ideaBlob'>
-    {ideaArr.map((idea, index) => (
-    <div key={index} className='ideaSpeck'>
-    <button className='deleteBtn'  onClick={() => handleDelete(idea)}>x</button>
-    <p>{idea}</p>
-    </div>
-    ))}
-  </div>
-    )
-
-  } else {
-    return (
-    <div>
-      <p>No ideas yet</p>
-    </div>
-    )
-  
-  }
- 
-}
-
-  
 
 export default App;
