@@ -2,6 +2,7 @@ import './css/App.css';
 import * as React from 'react';
 import { useState } from 'react';
 import { DragAndDrop } from './components/DragAndDrop';
+import { Navbar } from './components/Navbar'
 
 
 function App() {
@@ -18,8 +19,9 @@ function App() {
   }
   return (
     <div className="App">
+      <Navbar/>
       <header >
-        <h1>Brain storme</h1>
+        <h1>Brain storm</h1>
       </header>
       <div className='input-wrapper'>
         <input 
@@ -43,27 +45,5 @@ function App() {
 
   );
 }
-
-// function handleDragStart(e) {
-//   e.dataTransfer.setData("text/plain", e.target.id);
-// }
-
-// function handleDragOver(e) {
-//   e.preventDefault();
-//   e.dataTransfer.dropEffect = "move";
-// }
-
-// function handleDrop(e) {
-//   e.preventDefault();
-//   const ideaID = e.dataTransfer.getData("text/plain");
-//   e.target.appendChild(document.getElementById(ideaID));
-// }
-
-// window.addEventListener("DOMContentLoaded", () => {
-//   const element = document.querySelectorAll("ideaSpeck");
-//   element.addEventListener("dragstart", handleDragStart);
-// });
-
-
 
 export default App;
