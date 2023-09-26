@@ -1,15 +1,12 @@
-import './App.css';
+import './css/App.css';
 import * as React from 'react';
 import { useState } from 'react';
-import { DndContext } from '@dnd-kit/core';
-import {Droppable} from './Droppable';
-import {Draggable} from './Draggable';
+import { DragAndDrop } from './components/DragAndDrop';
+
 
 function App() {
   const [idea, setIdea] = useState("");
   const [ideaArr, setIdeaArr] = useState([])
-  const [isDropped, setIsDropped] = useState(false);
-
   function handleBuild(idea) {
     if (idea !== "") {
       const temp = ideaArr.slice();
@@ -19,14 +16,7 @@ function App() {
     } else {
     }
   }
-
-  function handleDragEnd(event) {
-    if (event.over && event.over.id === 'droppable') {
-      setIsDropped(true);
-    }
-  }
   return (
-    <DndContext onDragEnd={handleDragEnd}>
     <div className="App">
       <header >
         <h1>Brain storme</h1>
@@ -48,14 +38,32 @@ function App() {
           Build
         </button>
       </div>
-      <div>
-        <Draggable ideaArr={ideaArr} setIdeaArr={setIdeaArr} />
+      <DragAndDrop ideaArr={ideaArr} setIdeaArr={setIdeaArr} />
       </div>
-
-    </div>
-    </DndContext>
 
   );
 }
+
+// function handleDragStart(e) {
+//   e.dataTransfer.setData("text/plain", e.target.id);
+// }
+
+// function handleDragOver(e) {
+//   e.preventDefault();
+//   e.dataTransfer.dropEffect = "move";
+// }
+
+// function handleDrop(e) {
+//   e.preventDefault();
+//   const ideaID = e.dataTransfer.getData("text/plain");
+//   e.target.appendChild(document.getElementById(ideaID));
+// }
+
+// window.addEventListener("DOMContentLoaded", () => {
+//   const element = document.querySelectorAll("ideaSpeck");
+//   element.addEventListener("dragstart", handleDragStart);
+// });
+
+
 
 export default App;

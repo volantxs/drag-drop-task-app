@@ -55,6 +55,15 @@
   margin: 1%;
 }
 
+.dropArea {
+  background-color: gray;
+  color: black;
+  height: 400px;
+  border: 2px solid dashed;
+  display: block;
+  margin: 10px;
+}
+
 
 @media only screen and (min-width: 300px) {
   .inputBuild {
