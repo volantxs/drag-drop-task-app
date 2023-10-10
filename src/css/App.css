@@ -1,6 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Inter&display=swap');
 .App {
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
 
 }
 
@@ -8,38 +8,17 @@
   color: rgb(140, 140, 140);
 }
 
-.buildBtn {
-  border: none;
-  border-radius: 4px ;
-  width: 70px;
-  margin-right: 4px ;
-  padding: 10px;
-  font-size: medium;
-  font-weight: 600;
-  color: rgb(0, 0, 0);
-  font-family: 'Courier New', Courier, monospace;
-  
-  background-color: rgb(222, 222, 222);
-}
-
-.buildBtn:hover{
-  animation: App-logo-spin 3s infinite;
-}
-
-.buildBtn:active {
-  position: relative;
-  top: 2px;
-  left: 2px;
-}
-
 .deleteBtn {
   border: none;
   float: left;
   padding: 5px;
   font-size: medium;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
   background: transparent;
   color: rgb(255, 0, 0);
+}
+
+.head {
+  margin-top: 15%;
 }
 
 .ideaBlob {
@@ -58,6 +37,10 @@
   margin: 1%;
 }
 
+.inputWrapper {
+  position: relative;
+}
+
 .dropArea {
   background-color: gray;
   color: black;
@@ -65,28 +48,6 @@
   border: 2px solid dashed;
   display: block;
   margin: 10px;
-}
-
-.navbar {
-  display: block;
-  background: transparent;
-  backdrop-filter: blue(10px);
-  background-color:rgb(146, 62, 224);
-  height: 50px;
-  box-shadow: 4px 4px 4px rgb(186, 186, 186);
-  width: 50%;
-  margin: 1%;
-  border-radius: 10px;
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-
-
-}
-
-span.navItem {
-  position: relative;
-  top: 15px;
-  margin-left: 10px;
 }
 
 
@@ -98,23 +59,73 @@ span.navItem {
     margin-right: 4px ;
     padding: 10px;
     font-size: medium;
-  font-family: 'Courier New', Courier, monospace;
 
     background-color: rgb(44, 44, 44);
     color: rgb(251, 255, 6);
+  }
+
+  .navbar {
+    display: block;
+    background: transparent;
+    backdrop-filter: blue(10px);
+    background-color:rgb(146, 62, 224);
+    height: 50px;
+    box-shadow: 4px 4px 4px rgb(186, 186, 186);
+    margin: 1%;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  span.navItem {
+    position: relative;
+    top: 15px;
+    text-align: start;
+
+    margin-left: 15px;
+  }
+
+  span.navItemBrand {
+    position: relative;
+    top: 15px;
+    margin-left: 15px;
+
   }
 }
 
 @media only screen and (min-width: 700px) {
   .inputBuild {
-    border: none;
-    border-radius: 4px ;
     width: 350px;
-    margin-right: 4px ;
-    padding: 10px;
+    height: 15px;
     font-size: medium;
     background-color: rgb(44, 44, 44);
     color: rgb(251, 255, 6);
+  }
+
+  .navbar {
+    display: block;
+    background: transparent;
+    backdrop-filter: blue(10px);
+    background-color:rgb(146, 62, 224);
+    height: 50px;
+    box-shadow: 4px 4px 4px rgb(186, 186, 186);
+    width: 30%;
+    margin: 1%;
+    border-radius: 10px;
+    color: white;
+    /* text-align: start; */
+  }
+  
+  span.navItem {
+    position: relative;
+    top: 15px;
+    margin-left: 15px;
+  }
+
+  span.navItemBrand {
+    position: relative;
+    top: 15px;
+    margin-left: 15px;
+
   }
 }
 

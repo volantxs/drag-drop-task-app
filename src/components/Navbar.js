@@ -1,11 +1,18 @@
+import { Button } from "@chakra-ui/react";
+
 export function Navbar() {
     return(
-<div className="navbar">
-        <span className="navItem">Squash</span>
-        <span className="navItem">Squash</span>
-        <span className="navItem">Squash</span>
-    </div>
-
+    <Button 
+      margin={7} 
+      bg={"purple.200"} 
+      color={"purple.600"} 
+      onClick={(e) => handleNewCard(e)}>
+        New Card
+    </Button>
     );
     
+}
+
+function handleNewCard() {
+
 }

@@ -15,11 +15,10 @@ export function DisplayIdeas(props) {
           draggable="true"
           onDragStart={props.onDragStart} 
           id={"drag-"+ (new Date()).getTime()}>
-        <button className='deleteBtn' onClick={() => handleDelete(idea)}>x</button>
+        {/* <button className='deleteBtn' onClick={() => handleDelete(idea)}>x</button> */}
         <p>{idea}</p>
         </div>
         ))
-    
         )
       } else {
         return (

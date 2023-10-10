@@ -2,7 +2,9 @@ import './css/App.css';
 import * as React from 'react';
 import { useState } from 'react';
 import { DragAndDrop } from './components/DragAndDrop';
-import { Navbar } from './components/Navbar'
+import { Navbar } from './components/Navbar';
+import { Center, ChakraProvider, Container } from '@chakra-ui/react';
+import { Input, Button, ButtonGroup, Stack, Grid, GridItem } from '@chakra-ui/react'
 
 
 function App() {
@@ -18,31 +20,33 @@ function App() {
     }
   }
   return (
-    <div className="App">
+    <ChakraProvider>
       <Navbar/>
-      <header >
-        <h1>Brain storm</h1>
-      </header>
-      <div className='input-wrapper'>
-        <input 
-          className='inputBuild'
+      <Container centerContent>
+      <Center>
+        <Stack align='center' direction='row'  spacing={4}>
+        <Input
           type='text' 
           name='idea' 
-          placeholder='Jot down an idea'
+          width='auto'
+          placeholder='Jot down a task'
           value={idea}
           onChange={(e) => setIdea(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleBuild(idea)}
           required
           />
-        <button 
-          className='buildBtn' 
+        <Button 
+          colorScheme='gray'
+          variant='solid' 
           onClick={() => handleBuild(idea)}>
           Build
-        </button>
-      </div>
+        </Button>
+        </Stack>
+        </Center>
       <DragAndDrop ideaArr={ideaArr} setIdeaArr={setIdeaArr} />
-      </div>
+      </Container>
 
+    </ChakraProvider>
   );
 }
 
