@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { DragAndDrop } from './components/DragAndDrop';
 import { Navbar } from './components/Navbar';
 import { Center, ChakraProvider, Container } from '@chakra-ui/react';
-import { Input, Button, ButtonGroup, Stack, Grid, GridItem } from '@chakra-ui/react'
+import { Input, Button, ButtonGroup, Stack } from '@chakra-ui/react'
 
 
 function App() {

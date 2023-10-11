@@ -1,4 +1,5 @@
 import { Button } from "@chakra-ui/react";
+import React, { useState } from "react";
 
 export function Navbar() {
     return(
@@ -14,5 +15,6 @@ export function Navbar() {
 }
 
 function handleNewCard() {
-
+  
 }
+
