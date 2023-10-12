@@ -1,20 +1,17 @@
 import { Button } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { TaskCardnew } from "./addTaskCard";
+import { DragAndDrop } from "./DragAndDrop";
 
-export function Navbar() {
-    return(
-    <Button 
-      margin={7} 
-      bg={"purple.200"} 
-      color={"purple.600"} 
-      onClick={(e) => handleNewCard(e)}>
-        New Card
-    </Button>
-    );
-    
-}
+let _isClicked;
 
-function handleNewCard() {
+
+
+export {_isClicked};
+
+
   
-}
+
+
+
 

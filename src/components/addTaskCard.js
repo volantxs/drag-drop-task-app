@@ -1,7 +1,6 @@
 import { Container, Grid, GridItem } from '@chakra-ui/react';
-import { useState } from 'react';
 
-function TaskCardnew() {
+export function TaskCardnew(isClicked) {
     function handleDrop(e) {
         e.preventDefault();
         var data = e.dataTransfer.getData("text");
@@ -11,10 +10,9 @@ function TaskCardnew() {
         e.preventDefault();
         e.dataTransfer.dropEffect = "move"
       }
-    return (
-        <Container>
-        <Grid templateColumns='repeat(4, 1fr)' gap={4}>
-        <GridItem 
+    if (isClicked == true) {
+      return (
+      <GridItem 
         margin={5}
         padding={5}
         width={'320px'}
@@ -24,20 +22,6 @@ function TaskCardnew() {
         onDrop={(e) => handleDrop(e)} 
         onDragOver={(e) => handleOnDragover(e)}>
         </GridItem>
-        </Grid> 
-        </Container>
-    )
+        );
+    }   
 }
-
-export function CreateCard(TaskCardnew) {
-    const cardDiv = document.getElementById('cards')
-    const [taskCard, setTaskCard] = useState([]);
-    const temp = taskCard;
-    // cardDiv.appendChild(TaskCardnew);
-    // temp.push(TaskCardnew)
-    // setTaskCard(temp);
-    // taskCard.map((cards => {
-    //     cardDiv.appendChild(cards);
-    // }))
-  }
-  

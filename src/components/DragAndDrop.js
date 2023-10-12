@@ -1,5 +1,7 @@
 import { DisplayIdeas } from './DisplayIdeas';
-import { CreateCard } from './addTaskCard';
+import * as React from 'react';
+import { Grid, GridItem, Button } from '@chakra-ui/react';
+
 
 export function DragAndDrop(props) {
   function onDragStart(e) {
@@ -11,9 +13,14 @@ export function DragAndDrop(props) {
           ideaArr={props.ideaArr} 
           setIdeaArr={props.setIdeaArr}
           onDragStart={(e)=> onDragStart(e)} />
-      <div id='cards'>
-      </div>
-      <CreateCard/>
+      <Grid templateRows={'repeat(2, 1fr)'} gap={4}>
+      {props.cards.map((card) => 
+       {
+        return(card);
+       }
+      )}
+      </Grid> 
       </div>
     )
 }
+
