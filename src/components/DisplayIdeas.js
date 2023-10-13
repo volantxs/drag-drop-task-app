@@ -8,25 +8,24 @@ export function DisplayIdeas(props) {
       function onDragStart(e) {
         e.dataTransfer.setData("text", e.target.id);
       }
-    
       if (props.ideaArr.length > 0) {
         return (
          props.ideaArr.map((idea, index) => (
-        <div 
+        <dd 
           key={index}  
-          className='ideaSpeck' 
+          className='text-bg-primary alert alert-primary' 
           draggable="true"
           onDragStart={(e) => onDragStart(e)} 
           id={"drag-"+ (new Date()).getTime()}>
         {/* <button className='deleteBtn' onClick={() => handleDelete(idea)}>x</button> */}
-        <p>{idea}</p>
-        </div>
+        {idea}
+        </dd>
         ))
         )
       } else {
         return (
-        <div>
-          <p>No ideas yet</p>
+        <div class="alert alert-danger" role="alert">
+          No tasks yet! -- Create card and assign tasks to get started
         </div>
         )
       

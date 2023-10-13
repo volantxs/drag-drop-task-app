@@ -43,9 +43,9 @@ function App() {
       </nav>
       <div className='container-fluid pt-5'>
         <form className='form-inline mx-auto pb-4' style={{width: '50%'}}>
-          <div className='input-group'>
+        <div className='input-group shadow rounded'>
         <input
-          className='form-control'
+          className='form-control  border-0'
           type='text' 
           name='idea' 
           placeholder='Jot down a task'
@@ -54,27 +54,25 @@ function App() {
           onKeyDown={(e) => e.key === "Enter" && handleBuild(idea)}
           required
           />
-          <div className='input-group-append'>
         <button 
-          className='btn btn-outline-dark '
+          className='btn btn-primary'
           type='button'
           onClick={() => handleBuild(idea)}>
           Build
         </button>
         </div>
-        </div>
         </form>
-        <div className='container-fluid mx-auto row text-center'>
-        <div className='col-md-10'>
+        <div className='container mx-auto'>
         <DisplayIdeas ideaArr={ideaArr} setIdeaArr={setIdeaArr} />
+      <div className='row '>
+        <div className='col'>
         <TaskCard cardsID={cardsID}/>
         </div>
-        <div className='col-md-1'>
+        <div className='col-md-1 mx-auto'>
           <h1 className='text-center'>Teams</h1>
         </div>
-      
         </div>
-
+        </div>
       </div>
       </div>      
   );
