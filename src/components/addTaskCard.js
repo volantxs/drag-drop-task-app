@@ -1,6 +1,4 @@
-import { Container, Grid, GridItem } from '@chakra-ui/react';
-
-export function TaskCardnew(isClicked) {
+export function TaskCard(props) {
     function handleDrop(e) {
         e.preventDefault();
         var data = e.dataTransfer.getData("text");
@@ -9,19 +7,22 @@ export function TaskCardnew(isClicked) {
       function handleOnDragover(e) {
         e.preventDefault();
         e.dataTransfer.dropEffect = "move"
-      }
-    if (isClicked == true) {
+        }
+
+    if ((props.cardsID).length > 0) {
       return (
-      <GridItem 
-        margin={5}
-        padding={5}
-        width={'320px'}
-        borderRadius={10}
-        bg={'gray.100'}
-        id='droppable' 
-        onDrop={(e) => handleDrop(e)} 
-        onDragOver={(e) => handleOnDragover(e)}>
-        </GridItem>
+          <div  className="row g-2 align-self-center">
+         {props.cardsID.map((cardID => {
+          return (<div
+            key={cardID}
+            className='_taskCard col-sm-3'
+            id='droppable' 
+            onDrop={(e) => handleDrop(e)} 
+            onDragOver={(e) => handleOnDragover(e)}>
+            </div>)
+         }))} 
+          </div>
+
         );
     }   
 }

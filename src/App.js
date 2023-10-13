@@ -1,18 +1,17 @@
 import './css/App.css';
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DragAndDrop } from './components/DragAndDrop';
-import { Navbar } from './components/Navbar';
-import { Center, ChakraProvider, Container } from '@chakra-ui/react';
-import { Input, Button, ButtonGroup, Stack, Grid, GridItem } from '@chakra-ui/react'
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { DisplayIdeas } from './components/DisplayIdeas';
+import { TaskCard } from './components/addTaskCard';
 
 
 function App() {
-  const [cards, setCards] = useState([]);
-
+  const [cardsID, setCardsID] = useState([]);
   const [idea, setIdea] = useState("");
-  const [ideaArr, setIdeaArr] = useState([])
-  // const [count, setCount] = useState(0);
+  const [ideaArr, setIdeaArr] = useState([]);
 
   function handleBuild(idea) {
     if (idea !== "") {
@@ -23,69 +22,61 @@ function App() {
     } else {
     }
   }
-  
-  function handleDrop(e) {
+
+  function handleClick(e) {
     e.preventDefault();
-    var data = e.dataTransfer.getData("text");
-    e.target.appendChild(document.getElementById(data));
-  }
-  function handleOnDragover(e) {
-    e.preventDefault();
-    e.dataTransfer.dropEffect = "move"
+    let temp = cardsID.slice();
+    const newID = (new Date()).getTime()
+    temp.push(newID)
+    setCardsID(temp);
   }
 
-  function handleClick(e, count) {
-    e.preventDefault();
-    let temp = cards;
-    temp.push(   
-    <GridItem 
-      key={count}
-      margin={3}
-      padding={5}
-      width={'300px'}
-      height={'300px'}
-      borderRadius={10}
-      bg={'gray.100'}
-      id='droppable' 
-      onDrop={(e) => handleDrop(e)} 
-      onDragOver={(e) => handleOnDragover(e)}>
-      </GridItem>)
-      setCards(temp);
-      // setCount(count + 1)
-  }
 
   return (
-    <ChakraProvider>
-       <Button 
-      margin={7} 
-      bg={"purple.200"} 
-      color={"purple.600"} 
+    <div>
+      <nav className='navbar navbar-light bg-secondary-subtle '>
+      <button 
+      className='btn btn-dark m-2' 
       onClick={(e) => handleClick(e)}>
         New Card
-    </Button>
-      <Container centerContent>
-      <Center>
-        <Stack align='center' direction='row'  spacing={4}>
-        <Input
+    </button>
+      </nav>
+      <div className='container-fluid pt-5'>
+        <form className='form-inline mx-auto pb-4' style={{width: '50%'}}>
+          <div className='input-group'>
+        <input
+          className='form-control'
           type='text' 
           name='idea' 
-          width='auto'
           placeholder='Jot down a task'
           value={idea}
           onChange={(e) => setIdea(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleBuild(idea)}
           required
           />
-        <Button 
-          colorScheme='gray'
+          <div className='input-group-append'>
+        <button 
+          className='btn btn-outline-dark '
+          type='button'
           onClick={() => handleBuild(idea)}>
           Build
-        </Button>
-        </Stack>
-        </Center>
-      <DragAndDrop ideaArr={ideaArr} setIdeaArr={setIdeaArr} cards={cards} />
-      </Container>
-    </ChakraProvider>
+        </button>
+        </div>
+        </div>
+        </form>
+        <div className='container-fluid mx-auto row text-center'>
+        <div className='col-md-10'>
+        <DisplayIdeas ideaArr={ideaArr} setIdeaArr={setIdeaArr} />
+        <TaskCard cardsID={cardsID}/>
+        </div>
+        <div className='col-md-1'>
+          <h1 className='text-center'>Teams</h1>
+        </div>
+      
+        </div>
+
+      </div>
+      </div>      
   );
 }
 

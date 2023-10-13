@@ -5,6 +5,9 @@ export function DisplayIdeas(props) {
         });
         props.setIdeaArr(temp);
       }
+      function onDragStart(e) {
+        e.dataTransfer.setData("text", e.target.id);
+      }
     
       if (props.ideaArr.length > 0) {
         return (
@@ -13,7 +16,7 @@ export function DisplayIdeas(props) {
           key={index}  
           className='ideaSpeck' 
           draggable="true"
-          onDragStart={props.onDragStart} 
+          onDragStart={(e) => onDragStart(e)} 
           id={"drag-"+ (new Date()).getTime()}>
         {/* <button className='deleteBtn' onClick={() => handleDelete(idea)}>x</button> */}
         <p>{idea}</p>
