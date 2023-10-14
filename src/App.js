@@ -26,8 +26,12 @@ function App() {
   function handleClick(e) {
     e.preventDefault();
     let temp = cardsID.slice();
-    const newID = (new Date()).getTime()
-    temp.push(newID)
+    let obj = {
+      id: "card-" + new Date().getTime(),
+      title: "" ,
+      subtitle: "" ,
+    }
+    temp.push(obj)
     setCardsID(temp);
   }
 
