@@ -42,7 +42,7 @@ function App() {
     </button>
       </nav>
       <div className='container-fluid pt-5'>
-        <form className='form-inline mx-auto pb-4' style={{width: '50%'}}>
+        <form className='form-inline mx-auto pb-4' style={{width: '70%'}}>
         <div className='input-group shadow rounded'>
         <input
           className='form-control  border-0'
@@ -64,7 +64,7 @@ function App() {
         </form>
         <div className='container mx-auto'>
         <DisplayIdeas ideaArr={ideaArr} setIdeaArr={setIdeaArr} />
-      <div className='row '>
+        <div className='row '>
         <div className='col'>
         <TaskCard cardsID={cardsID}/>
         </div>

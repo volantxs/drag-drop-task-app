@@ -11,7 +11,7 @@ export function DisplayIdeas(props) {
       if (props.ideaArr.length > 0) {
         return (
          props.ideaArr.map((idea, index) => (
-        <dd 
+        <li 
           key={index}  
           className='text-bg-primary alert alert-primary' 
           draggable="true"
@@ -19,7 +19,7 @@ export function DisplayIdeas(props) {
           id={"drag-"+ (new Date()).getTime()}>
         {/* <button className='deleteBtn' onClick={() => handleDelete(idea)}>x</button> */}
         {idea}
-        </dd>
+        </li>
         ))
         )
       } else {
