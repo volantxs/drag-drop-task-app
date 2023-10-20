@@ -1,14 +1,17 @@
 import './css/App.css';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { DragAndDrop } from './components/DragAndDrop';
+import { Routes, Route } from 'react-router-dom'; 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { DisplayIdeas } from './components/DisplayIdeas';
-import { TaskCard } from './components/addTaskCard';
+import { TaskCard } from './components/createTask';
+import Navbar from './components/Navbar';
+import Edit from './components/edit';
+import RecordList from './components/AllRecords';
 
 
-function App() {
+const App = () => {
   const [cardsID, setCardsID] = useState([]);
   const [idea, setIdea] = useState("");
   const [ideaArr, setIdeaArr] = useState([]);
@@ -22,7 +25,6 @@ function App() {
     } else {
     }
   }
-
   function handleClick(e) {
     e.preventDefault();
     let temp = cardsID.slice();
@@ -35,16 +37,18 @@ function App() {
     setCardsID(temp);
   }
 
-
   return (
     <div>
-      <nav className='navbar navbar-light bg-secondary-subtle '>
+      {/* <nav className='navbar navbar-light bg-secondary-subtle '>
       <button 
       className='btn btn-dark m-2' 
       onClick={(e) => handleClick(e)}>
         New Card
     </button>
-      </nav>
+      </nav> */}
+      <Navbar/>
+      
+
       <div className='container-fluid pt-5'>
         <form className='form-inline mx-auto pb-4' style={{width: '70%'}}>
         <div className='input-group shadow rounded'>
@@ -68,14 +72,12 @@ function App() {
         </form>
         <div className='container mx-auto'>
         <DisplayIdeas ideaArr={ideaArr} setIdeaArr={setIdeaArr} />
-        <div className='row '>
-        <div className='col'>
-        <TaskCard cardsID={cardsID}/>
-        </div>
-        <div className='col-md-1 mx-auto'>
-          <h1 className='text-center'>Teams</h1>
-        </div>
-        </div>
+
+        <Routes>
+        <Route exact path="/" element={<RecordList/>}/>
+        <Route exact path="/edit/:id" element={<Edit/>}/>
+        <Route exact path="/create" element={<TaskCard/>}/>
+      </Routes>
         </div>
       </div>
       </div>      

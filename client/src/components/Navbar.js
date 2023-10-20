@@ -1,17 +1,32 @@
-import { Button } from "@chakra-ui/react";
-import React, { useState } from "react";
-import { TaskCardnew } from "./addTaskCard";
-import { DragAndDrop } from "./DragAndDrop";
+import React from 'react';
+import "bootstrap/dist/css/bootstrap.css";
+// react router
+import { NavLink } from 'react-router-dom';
 
-let _isClicked;
+export default function Navbar() {
+    return (
+        <div>
+            <nav className='navbar navbar-expand-md p-3 navbar-light bg-light shadow'>
+                <NavLink className="navbar-brand" to="/">
+                    Squash
+                </NavLink>
+                <button 
+                  className='navbar-toggler'
+                  type='button'
+                  data-toggle = 'collapse'
+                  data-target = '#navbarSupportedContent'
+                 >
+                 <span className='navbar-toggler-icon'></span>       
+                </button>
+                <div className='collapse navbar-collapse' id='navbarSupportedContent'>
+                            <NavLink className="nav-link" to="/create">
+                                New Card
+                            </NavLink>
 
 
+                </div>
 
-export {_isClicked};
-
-
-  
-
-
-
-
+            </nav>
+        </div>
+    );
+}
